@@ -12,7 +12,6 @@ def transformation(text):
     else:
         prompts = open("prompts.txt", 'r').readlines()
         prompt = prompts[0]
-        prompt += text
         response = get_openai_response(api_key, model="gpt-4o-mini", user_message=prompt+text)
         return response
 
