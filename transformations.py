@@ -10,7 +10,8 @@ def transformation(text):
     if len(text) < 20:
         return text
     else:
-        prompt = "Перефразируй данный отрывок, но сохрани суть, сохрани ссылки и не добавляй новой информации, желательно слегка увеличить исходный объем. Вот этот отрывок: "
+        prompts = open("prompts.txt", 'r').readlines()
+        prompt = prompts[0]
         prompt += text
         response = get_openai_response(api_key, model="gpt-4o-mini", user_message=prompt+text)
         return response
